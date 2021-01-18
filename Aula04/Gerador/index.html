@@ -5,27 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Gerador de PDF</title>
-    <h2>Gerar PDF</h2>
+    <title>TAP</title>
 </head>
 
 <body>
+
     <div id="gerador" class="gerador">
         <form>
-            <label>Descrição do Objetivo:</label><br>
-            <input type="text" id="obj"><br>
-            <label>Recursos Humanos:</label><br>
-            <input type="text" id="rh"><br>
-            <label>Patrocinadores:</label><br>
-            <input type="text" id="patrocinio"><br>
-            <label>Gerente do Projeto:</label><br>
-            <input type="text" id="projeto"><br>
-            <label>Data de Conclusão:</label><br>
-            <input type="text" id="data"><br><br>
-            <button class="btn">Gerar EAP</button>
+            <h2>Gerador de TAP (Termo de Abertura do Projeto)</h2>
+            <label>Titulo do Projeto ou Descrição do Objetivo:</label><br>
+            <textarea type="text" id="titulo"></textarea><br><br>
+            <label>Patrocinadores :</label><br>
+            <textarea type="text" id="cash" placeholder="Separe por vírgula."></textarea><br><br>
+            <label>Desenvolvedores :</label><br>
+            <textarea type="text" id="devs" placeholder="Separe por vírgula."></textarea><br><br>
+            <label>Gerente do Projeto :</label><br>
+            <textarea type="text" id="gerente" placeholder="Separe por vírgula."></textarea><br><br>
+            <label>Cliente do Projeto :</label><br>
+            <textarea type="text" id="cliente" placeholder="Separe por vírgula."></textarea><br><br>
+            <label>Prazo de Entrega:</label><br>
+            <input type="text" id="prazo" placeholder="Datas podem ser inseridas da forma que preferir."><br><br>
+            <label id="pdf">Baixe seu PDF <img src="dedo-baixo.png" width="25"></label><br><br>
+            <button type="submit" id="btn" onclick="gera()"><img src="pdf-download.png" width="150"></button>
         </form>
     </div>
-
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"
+    integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous">
+</script>
+<script>
+    const titulo = document.getElementById("titulo");
+    const patrocinadores = document.getElementById("cash");
+    const desenvolvedores = document.getElementById("devs");
+    const gerentes = document.getElementById("gerente");
+    const clientes = document.getElementById("cliente");
+    const prazo = document.getElementById("prazo");
+
+    function gera() {
+        if (titulo.value !== '' && patrocinadores.value !== '' && desenvolvedores.value !== '' && gerentes.value !==
+            '' && clientes.value !== '' && prazo.value !== '') {
+            var doc = new jsPDF();
+            doc.addImage("fundo.png", 'PNG', 0, 0, 210, 297);
+            doc.setFontSize(12);
+            doc.text(titulo.value, 31, 49);
+            doc.text(patrocinadores.value, 31, 68);
+            doc.text(desenvolvedores.value.replaceAll(", ", "\n\n"), 73, 90);
+            doc.text(gerentes.value, 73, 171);
+            doc.text(patrocinadores.value, 73, 185);
+            doc.text(clientes.value, 73, 197);
+            doc.text(prazo.value, 73, 211);
+            doc.save('tap.pdf');
+        } else {
+            alert("Preencha todos os campos obrigatórios.");
+        }
+    }
+</script>
 
 </html>
