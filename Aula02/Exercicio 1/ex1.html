@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Mega-Sena Gerador
+    </title>
+    <script>
+        function gerar() {
+            var qnt = 0;
+            var
+                nums = [];
+            while (qnt <
+                6) {
+                var num = Math.round((Math.random() * 100) +
+                    1
+                );
+                if (num <
+                    60
+                ) {
+                    nums[qnt] =
+                        num;
+                    qnt = qnt + 1;
+                }
+            }
+            document.getElementById('num').innerHTML = nums[0] + " " + nums[1] + " " + nums[2] + " " + nums[3] + " " +
+                nums[4] + " " + nums[5];
+        }
+    </script>
+</head>
+
+<body>
+    <img src="logo-megasena.png" alt="">
+    <div>
+        <label>Digite quantos jogos e números:</label>
+        <input type="text" placeholder="Jogos e Números" />
+        <button Onclick='gerar()'>Sortear Valores</button>
+    </div>
+
+    <div id='num'>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação pela idade</title>
+</head>
+
+<body>
+    <script>
+        var nome = prompt("Digite seu nome");
+        var idade = prompt("Digite sua idade");
+
+        if (idade <= 12) {
+            document.write(nome, " você é criança!")
+        } else if (idade >= 13 && idade <= 17) {
+            document.write(nome, " você é adolescente!")
+        } else if (idade >= 18 && idade < 60) {
+            document.write(nome, " você é adulto(a)!")
+        } else {
+            document.write(nome, " você é idoso(a)!")
+        }
+    </script>
+</body>
+
+</html>
