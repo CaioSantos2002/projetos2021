@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<script src="home.js"></script>
+</head>
+
+
+<body>
+	<nav id="menu-h">
+		<ul>
+			<center>
+				<li>NOTA FISCAL</li>
+			</center>
+		</ul>
+	</nav>
+	<table id="tabela1">
+		<tr>
+			<td>Itens: <input type="text" placeholder="Descrição..." id="descricao"></td>
+			<td><input type="number" placeholder="Qtd..." id="quantidade"></td>
+			<td><input type="text" placeholder="Preço em R$..." id="preco"></td>
+			<td><button onclick="adicionaLinha()">Add</button></td>
+		</tr>
+	</table>
+	<table border="1" cellpadding="3" id="tabela2">
+		<tr>
+			<td rowspan="3" class="logo"><img src="logo.png" alt="Imagem" /></td>
+			<td class="destino">CPF do destinatário:<input id="cpf" oninput="mascara(this)" type="text"></td>
+
+		</tr>
+		<tr>
+			<td class="data">Data: <input id="date" type="date"></td>
+		</tr>
+		<tr>
+			<td class="local">Rua Frei Caneca (São Paulo)</td>
+		</tr>
+	</table>
+	<table border="1" id="tabelaProdutos">
+		<tr>
+			<td class="produtos">Produtos diversos</td>
+		</tr>
+	</table>
+	<div>
+		<table border="1" id="tbl">
+			<tr>
+				<td class="center"><b>Descrição</b></td>
+				<td class="center"><b>Qtd</b></td>
+				<td class="center"><b>Preço</b></td>
+				<td class="center"><b>Subtotal</b></td>
+			</tr>
+			<tbody id="tabela">
+			</tbody>
+		</table>
+
+
+	</div>
+	<table border="1" id="tabelaTotal">
+		<tr>
+			<td class="totalNota">Total da nota: <input type="text" id="totalCompra" readonly></td>
+		</tr>
+	</table>
+</body>
+
+
+</html>

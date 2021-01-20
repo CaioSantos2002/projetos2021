@@ -1,0 +1,47 @@
+{
+	"Connection" : {
+		"Headers" : {
+			"Content-type" : "application/json; charset=UTF-8",
+			"Access-Control-Allow-Origin" : "http://localhost/",
+			"Access-Control-Allow-Methods" : "GET, PUT, POST, DELETE"
+		}
+	},
+	"Database" : {
+		"host" : "localhost",
+		"port" : "3306",
+		"dbname" : "BancoArnaldo",
+		"user" : "root",
+		"password" : ""
+	},
+	"Class" : [
+		{
+			"name" : "Produtos",
+			"attributes" : [
+				"cod",
+				"nome",
+				"descricao",
+				"valor",
+				"quantidade"
+			]
+		},
+		{
+			"name" : "Compras",
+			"attributes" : [
+				"cod",
+				"data",
+				"codProduto",
+				"custo",
+				"quantidade"
+			]
+		},
+		{
+			"name" : "Vendas",
+			"attributes" : [
+				"cod",
+				"codProduto",
+				"preco",
+				"quantidade"
+			]
+		}
+	]
+}
